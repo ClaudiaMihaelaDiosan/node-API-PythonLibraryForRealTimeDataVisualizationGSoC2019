@@ -1,0 +1,19 @@
+{
+  "name": "api-pythonlibraryforrealtimedatavisualizationgsoc2019",
+  "version": "1.0.0",
+  "description": "A Noje.js RESTful CRUD API for the Python Library for Real Time Data Visualization Project GSoC2019",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClaudiaMihaelaDiosan/node-API-PythonLibraryForRealTimeDataVisualizationGSoC2019.git"
+  },
+  "author": "Mihaela Claudia Diosan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ClaudiaMihaelaDiosan/node-API-PythonLibraryForRealTimeDataVisualizationGSoC2019/issues"
+  },
+  "homepage": "https://github.com/ClaudiaMihaelaDiosan/node-API-PythonLibraryForRealTimeDataVisualizationGSoC2019#readme"
+}
