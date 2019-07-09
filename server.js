@@ -1,5 +1,7 @@
 const express = require ('express');
 const bodyParser = require('body-parser');
+//Joi.ObjectId = require('joi-objectid')(Joi);
+//const donors = require('./app/routes/donor.routes.js');
 
 //create express app
 const app = express();
@@ -23,6 +25,7 @@ app.listen(3000, () => {
 
 //Require Donor routes
 require ('./app/routes/donor.routes.js')(app);
+
 
 // Configuring the database
 const dbConfig = require('./config/database.config.js');
