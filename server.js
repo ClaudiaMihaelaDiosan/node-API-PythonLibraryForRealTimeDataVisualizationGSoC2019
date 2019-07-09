@@ -1,7 +1,6 @@
 const express = require ('express');
 const bodyParser = require('body-parser');
-//Joi.ObjectId = require('joi-objectid')(Joi);
-//const donors = require('./app/routes/donor.routes.js');
+
 
 //create express app
 const app = express();

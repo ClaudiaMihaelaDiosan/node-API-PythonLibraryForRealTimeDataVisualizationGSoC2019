@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Joi = require('@hapi/joi');
 
-var donorSchema = new mongoose.Schema({
+const donorSchema = mongoose.model('User', new mongoose.Schema({
   username:{
     type: String,
     required: true,
@@ -9,7 +9,7 @@ var donorSchema = new mongoose.Schema({
   },
   email: String,
   password:String
-});
+}));
 
 function validateDonor(donor){
   const schema = {
