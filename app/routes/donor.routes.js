@@ -13,4 +13,7 @@ app.get('/donor/:donorId',donor.findOne);
 // Retrieve all Donors
 app.get('/donors',donor.findAll);
 
+// Delete a Donor with donorId
+app.delete('/donor/:donorId', donor.delete);
+
 }

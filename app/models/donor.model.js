@@ -17,6 +17,7 @@ const donorSchema = mongoose.model('User', new mongoose.Schema({
         }
 }));
 
+
 function validateDonor(donor){
   const schema = Joi.object().keys({
     username: Joi.string().min(5).max(20).required(),

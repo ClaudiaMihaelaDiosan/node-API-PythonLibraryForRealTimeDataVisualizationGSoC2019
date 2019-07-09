@@ -67,3 +67,26 @@ exports.findAll = (req, res) => {
         });
     });
 };
+
+
+// Delete a donor with the specified donorId in the request
+exports.delete = (req, res) => {
+    Donor.findByIdAndRemove(req.params.donorId)
+    .then(donor => {
+        if(!donor) {
+            return res.status(404).send({
+                message: "Donor not found with id " + req.params.donorId
+            });
+        }
+        res.send({message: "Donor deleted successfully!"});
+    }).catch(err => {
+        if(err.kind === 'ObjectId' || err.name === 'NotFound') {
+            return res.status(404).send({
+                message: "Donor not found with id " + req.params.donorId
+            });
+        }
+        return res.status(500).send({
+            message: "Could not delete donor with id " + req.params.donorId
+        });
+    });
+};
