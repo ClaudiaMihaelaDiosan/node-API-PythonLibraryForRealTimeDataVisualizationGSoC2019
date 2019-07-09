@@ -1,9 +1,15 @@
-const Donor = require('../models/donor.model.js');
-//const { Donor, validate } = require('../models/user');
+//const Donor = require('../models/donor.model.js');
 const express = require('express');
+const {Donor, validateDonor} = require('../models/donor.model.js');
 
-// Create and Save a new Note
+// Create and Save a new Donor
 exports.create = (req, res) => {
+
+  //Validate donor
+  const { error } = validateDonor(req.body);
+     if (error) {
+         return res.status(400).send(error.details[0].message);
+     }
 
     // Create a Donor
     const donor = new Donor({
@@ -21,6 +27,8 @@ exports.create = (req, res) => {
         });
     });
 };
+
+
 
 
 // Find a single donor with a noteId

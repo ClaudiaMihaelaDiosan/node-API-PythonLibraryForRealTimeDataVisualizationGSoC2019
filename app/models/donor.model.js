@@ -5,8 +5,7 @@ var donorSchema = new mongoose.Schema({
   username:{
     type: String,
     required: true,
-    minlength: 5,
-    maclength: 20
+
   },
   email: String,
   password:String
@@ -19,6 +18,6 @@ function validateDonor(donor){
   return Joi.validate(donor, schema);
 }
 
-//create the model
-module.exports = mongoose.model('Donor', donorSchema);
-exports.validate = validateDonor;
+
+exports.Donor = donorSchema;
+exports.validateDonor = validateDonor;
