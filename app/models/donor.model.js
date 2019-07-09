@@ -7,14 +7,23 @@ const donorSchema = mongoose.model('User', new mongoose.Schema({
     required: true,
 
   },
-  email: String,
-  password:String
+  email: {
+        type: String,
+        required: true,
+    },
+    password: {
+            type: String,
+            required: true,
+        }
 }));
 
 function validateDonor(donor){
-  const schema = {
-    username: Joi.string().min(5).max(20).required()
-  };
+  const schema = Joi.object().keys({
+    username: Joi.string().min(5).max(20).required(),
+    email: Joi.string().min(5).max(255).required().email(),
+    password: Joi.string().regex(/^[a-zA-Z0-9]{6,16}$/).min(6).required()
+  }).with('email', 'password');
+
   return Joi.validate(donor, schema);
 }
 

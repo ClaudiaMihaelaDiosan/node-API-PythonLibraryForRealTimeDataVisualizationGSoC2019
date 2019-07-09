@@ -13,7 +13,9 @@ exports.create = (req, res) => {
 
     // Create a Donor
     const donor = new Donor({
-        username: req.body.username
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password
     });
 
 
@@ -44,11 +46,11 @@ exports.findOne = (req, res) => {
     }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Note not found with id " + req.params.donorId
+                message: "Donor not found with id " + req.params.donorId
             });
         }
         return res.status(500).send({
-            message: "Error retrieving note with id " + req.params.donorId
+            message: "Error retrieving donor with id " + req.params.donorId
         });
     });
 };
