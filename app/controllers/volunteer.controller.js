@@ -48,3 +48,39 @@ exports.create = (req, res) => {
 
      });
 };
+
+
+
+// Find a single volunteer with a volunteerId
+exports.findOne = (req, res) => {
+    Volunteer.findById(req.params.volunteerId)
+    .then(volunteer => {
+        if(!volunteer) {
+            return res.status(404).send({
+                message: "Volunteer not found with id " + req.params.volunteerId
+            });
+        }
+        res.send(volunteer);
+    }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Volunteer not found with id " + req.params.volunteerId
+            });
+        }
+        return res.status(500).send({
+            message: "Error retrieving volunteer with id " + req.params.volunteerId
+        });
+    });
+};
+
+// Retrieve and return all volunteers from the database.
+exports.findAll = (req, res) => {
+    Volunteer.find()
+    .then(volunteer => {
+        res.send(volunteer);
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while retrieving volunteers."
+        });
+    });
+};
