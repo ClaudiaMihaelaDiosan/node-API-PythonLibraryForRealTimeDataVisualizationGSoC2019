@@ -13,4 +13,10 @@ app.get('/volunteer/:volunteerId',volunteer.findOne);
 // Retrieve all Volunteer
 app.get('/volunteers',volunteer.findAll);
 
+// Delete a Volunteer with volunteerId
+app.delete('/volunteer/:volunteerId', volunteer.delete);
+
+// Update a Volunteer with volunteerId
+app.put('/volunteer/:volunteerId', volunteer.update);
+
 }

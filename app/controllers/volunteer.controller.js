@@ -84,3 +84,57 @@ exports.findAll = (req, res) => {
         });
     });
 };
+
+// Delete a volunteer with the specified volunteerId in the request
+exports.delete = (req, res) => {
+    Volunteer.findByIdAndRemove(req.params.volunteerId)
+    .then(volunteer => {
+        if(!volunteer) {
+            return res.status(404).send({
+                message: "Volunteer not found with id " + req.params.volunteerId
+            });
+        }
+        res.send({message: "Volunteer deleted successfully!"});
+    }).catch(err => {
+        if(err.kind === 'ObjectId' || err.name === 'NotFound') {
+            return res.status(404).send({
+                message: "Volunteer not found with id " + req.params.volunteerId
+            });
+        }
+        return res.status(500).send({
+            message: "Could not delete volunteer with id " + req.params.volunteerId
+        });
+    });
+};
+
+// Update a volunteer identified by the volunteerId in the request
+exports.update = (req, res) => {
+    // Validate Request
+    if(!req.body.username) {
+        return res.status(400).send({
+            message: "Volunteer username can not be empty"
+        });
+    }
+
+    // Find volunteer and update it with the request body
+    Volunteer.findByIdAndUpdate(req.params.volunteerId, {
+        username: req.body.username || "Username"
+    }, {new: true})
+    .then(volunteer => {
+        if(!volunteer) {
+            return res.status(404).send({
+                message: "Volunteer not found with id " + req.params.volunteerId
+            });
+        }
+        res.send(volunteer);
+    }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Volunteer not found with id " + req.params.volunteerId
+            });
+        }
+        return res.status(500).send({
+            message: "Error updating volunteer with id " + req.params.volunteerId
+        });
+    });
+};

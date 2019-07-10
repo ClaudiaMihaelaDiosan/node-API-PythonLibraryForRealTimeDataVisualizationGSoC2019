@@ -49,7 +49,7 @@ exports.create = (req, res) => {
 
 
 
-// Find a single donor with a noteId
+// Find a single donor with a donorId
 exports.findOne = (req, res) => {
     Donor.findById(req.params.donorId)
     .then(donor => {
