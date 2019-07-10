@@ -16,4 +16,7 @@ app.get('/donors',donor.findAll);
 // Delete a Donor with donorId
 app.delete('/donor/:donorId', donor.delete);
 
+// Update a Donor with donorId
+app.put('/donor/:donorId', donor.update);
+
 }

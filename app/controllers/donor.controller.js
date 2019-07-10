@@ -55,7 +55,7 @@ exports.findOne = (req, res) => {
     .then(donor => {
         if(!donor) {
             return res.status(404).send({
-                message: "Note not found with id " + req.params.donorId
+                message: "Donor not found with id " + req.params.donorId
             });
         }
         res.send(donor);
@@ -103,6 +103,40 @@ exports.delete = (req, res) => {
         }
         return res.status(500).send({
             message: "Could not delete donor with id " + req.params.donorId
+        });
+    });
+};
+
+
+
+// Update a donor identified by the donorId in the request
+exports.update = (req, res) => {
+    // Validate Request
+    if(!req.body.username) {
+        return res.status(400).send({
+            message: "Donor username can not be empty"
+        });
+    }
+
+    // Find donor and update it with the request body
+    Donor.findByIdAndUpdate(req.params.donorId, {
+        username: req.body.username || "Username",
+    }, {new: true})
+    .then(donor => {
+        if(!donor) {
+            return res.status(404).send({
+                message: "Donor not found with id " + req.params.donorId
+            });
+        }
+        res.send(donor);
+    }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Donor not found with id " + req.params.donorId
+            });
+        }
+        return res.status(500).send({
+            message: "Error updating donor with id " + req.params.donorId
         });
     });
 };
