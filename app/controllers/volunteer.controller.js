@@ -118,7 +118,8 @@ exports.update = (req, res) => {
 
     // Find volunteer and update it with the request body
     Volunteer.findByIdAndUpdate(req.params.volunteerId, {
-        username: req.body.username || "Username"
+        username: req.body.username || "Username",
+        Age: req.body.Age
     }, {new: true})
     .then(volunteer => {
         if(!volunteer) {

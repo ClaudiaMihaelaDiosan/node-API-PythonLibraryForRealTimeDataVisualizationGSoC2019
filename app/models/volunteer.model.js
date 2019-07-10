@@ -38,7 +38,7 @@ function validateVolunteer(volunteer){
     FirstName: Joi.string().min(2).max(50).required(),
     LastName: Joi.string().min(2).max(50).required(),
     Age: Joi.number().greater(16).integer().positive().required(),
-  }).with('email', 'password');
+  });
 
   return Joi.validate(volunteer, schema);
 }
