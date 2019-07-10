@@ -1,6 +1,8 @@
 const express = require('express');
 const {Donor, validateDonor} = require('../models/donor.model.js');
 const bcrypt = require('bcrypt');
+
+
 // Create and Save a new Donor
 exports.create = (req, res) => {
 
@@ -16,24 +18,30 @@ exports.create = (req, res) => {
            error: err
          });
        }else{
-         // Create a Donor
-         const donor = new Donor({
-             username: req.body.username,
-             email: req.body.email,
-             password: hash
-       });
-
-       // Save Donor in the database
-       donor.save()
-       .then(data => {
-           res.send(data);
-       }).catch(err => {
-           res.status(500).send({
-               message: err.message || "Some error occurred while creating the Donor user profile."
-           });
-       });
-
-     }
+         Donor.findOne({ email: req.body.email}).exec(function(err,donor){
+           if (donor){
+             return res.status(500).send({
+                 message: "There is already a user with this email address."
+             });
+           }else{
+             // Create a Donor
+               const donor = new Donor({
+                   username: req.body.username,
+                   email: req.body.email,
+                   password: hash
+             });
+             // Save Donor in the database
+             donor.save()
+             .then(data => {
+                 res.send(data);
+             }).catch(err => {
+                 return res.status(500).send({
+                     message: err.message || "Some error occurred while creating the Donor user profile."
+                 });
+             });
+           }
+         });
+            }
 
      });
 };
