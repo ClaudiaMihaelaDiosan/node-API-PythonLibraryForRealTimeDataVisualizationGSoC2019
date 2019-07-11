@@ -80,3 +80,26 @@ exports.findAll = (req, res) => {
         });
     });
 };
+
+
+// Delete a helpless with the specified helplessId in the request
+exports.delete = (req, res) => {
+    Helpless.findByIdAndRemove(req.params.helplessId)
+    .then(helpless => {
+        if(!helpless) {
+            return res.status(404).send({
+                message: "Helpless not found with id " + req.params.helplessId
+            });
+        }
+        res.send({message: "Helpless deleted successfully!"});
+    }).catch(err => {
+        if(err.kind === 'ObjectId' || err.name === 'NotFound') {
+            return res.status(404).send({
+                message: "Helpless not found with id " + req.params.helplessId
+            });
+        }
+        return res.status(500).send({
+            message: "Could not delete helpless with id " + req.params.helplessId
+        });
+    });
+};
