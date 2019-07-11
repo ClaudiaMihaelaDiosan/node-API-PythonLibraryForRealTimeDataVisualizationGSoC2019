@@ -31,7 +31,9 @@ exports.create = (req, res) => {
                    password: hash,
                    FirstName: req.body.FirstName,
                    LastName: req.body.LastName,
-                   Birthyear: req.body.Birthyear
+                   Birthyear: req.body.Birthyear,
+                   Birthmonth: req.body.Birthmonth,
+                   Birthday: req.body.Birthday
              });
              // Save Volunteer in the database
              volunteer.save()

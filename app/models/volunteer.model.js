@@ -26,6 +26,14 @@ const volunteerSchema = mongoose.model('Volunteer', new mongoose.Schema({
   Birthyear: {
     type: Number,
     required: true,
+  },
+  Birthmonth:{
+    type:Number,
+    required: true,
+  },
+  Birthday:{
+    type:Number,
+    required: true
   }
 }));
 
@@ -37,7 +45,9 @@ function validateVolunteer(volunteer){
     password: Joi.string().regex(/^[a-zA-Z0-9]{6,16}$/).min(6).required(),
     FirstName: Joi.string().min(2).max(50).required(),
     LastName: Joi.string().min(2).max(50).required(),
-    Birthyear: Joi.number().integer().min(1900).max(2003).positive().required(),
+    Birthyear: Joi.number().integer().min(1900).max(2005).positive().required(),
+    Birthmonth: Joi.number().integer().min(1).max(12).positive().required(),
+    Birthday: Joi.number().integer().min(1).max(31).positive().required()
   });
 
   return Joi.validate(volunteer, schema);
