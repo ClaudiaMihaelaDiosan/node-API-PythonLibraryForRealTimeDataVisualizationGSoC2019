@@ -44,3 +44,26 @@ exports.create = (req, res) => {
             }
 
 };
+
+
+// Find a single helpless with a helplessId
+exports.findOne = (req, res) => {
+    Helpless.findById(req.params.helplessId)
+    .then(helpless => {
+        if(!helpless) {
+            return res.status(404).send({
+                message: "Helpless not found with id " + req.params.helplessId
+            });
+        }
+        res.send(helpless);
+    }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Helpless not found with id " + req.params.helplessId
+            });
+        }
+        return res.status(500).send({
+            message: "Error retrieving helpless with id " + req.params.helplessId
+        });
+    });
+};
