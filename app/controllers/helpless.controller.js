@@ -67,3 +67,16 @@ exports.findOne = (req, res) => {
         });
     });
 };
+
+
+// Retrieve and return all helpless from the database.
+exports.findAll = (req, res) => {
+    Helpless.find()
+    .then(helpless => {
+        res.send(helpless);
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while retrieving helpless."
+        });
+    });
+};

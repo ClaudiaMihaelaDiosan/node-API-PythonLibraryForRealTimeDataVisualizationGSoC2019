@@ -10,4 +10,7 @@ app.post('/helpless', helpless.create);
 // Retrieve a single Helpless with helplessId
 app.get('/helpless/:helplessId',helpless.findOne);
 
+// Retrieve all Helpless
+app.get('/allhelpless',helpless.findAll);
+
 }
