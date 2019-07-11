@@ -29,6 +29,9 @@ require ('./app/routes/donor.routes.js')(app);
 //Require Volunteer routes
 require ('./app/routes/volunteer.routes.js')(app);
 
+//Require Helpless routes
+require ('./app/routes/helpless.routes.js')(app);
+
 
 // Configuring the database
 const dbConfig = require('./config/database.config.js');
