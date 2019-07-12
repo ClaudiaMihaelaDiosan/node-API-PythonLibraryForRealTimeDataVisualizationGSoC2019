@@ -28,7 +28,9 @@ exports.create = (req, res) => {
                const donor = new Donor({
                    username: req.body.username,
                    email: req.body.email,
-                   password: hash
+                   password: hash,
+                   donationType: req.body.donationType,
+                   helpType: req.body.helpType
              });
              // Save Donor in the database
              donor.save()

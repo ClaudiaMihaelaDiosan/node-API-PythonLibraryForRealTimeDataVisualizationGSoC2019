@@ -9,13 +9,21 @@ const donorSchema = mongoose.model('User', new mongoose.Schema({
 
   },
   email: {
-        type: String,
-        required: true,
-    },
-    password: {
-            type: String,
-            required: true,
-        }
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  donationType:{
+    type: String,
+    required: true,
+  },
+  helpType:{
+    type:String,
+    required: true,
+  }
 }));
 
 
@@ -25,7 +33,9 @@ function validateDonor(donor){
   const schema = Joi.object().keys({
     username: Joi.string().min(5).max(20).required(),
     email: Joi.string().min(5).max(255).required().email(),
-    password: Joi.string().regex(/^[a-zA-Z0-9]{6,16}$/).min(6).required()
+    password: Joi.string().regex(/^[a-zA-Z0-9]{6,16}$/).min(6).required(),
+    donationType: Joi.string().valid("Food","Clothes","Work","Lodging","Work","Hygiene products").required().description("Accepted values:Food,Clothes,Work,Lodging,Hygiene products"),
+    helpType: Joi.string().valid("Personally","Through a volunteer").required().description("Accepted values: Personally, Through a volunteer")
   }).with('email', 'password');
 
   return Joi.validate(donor, schema);
