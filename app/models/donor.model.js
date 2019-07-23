@@ -39,7 +39,7 @@ function validateDonor(donor){
     email: Joi.string().min(5).max(255).required().email(),
     password: Joi.string().regex(/^[a-zA-Z0-9]{6,16}$/).min(6).required(),
     donationType: Joi.string().valid("Food","Clothes","Work","Lodging","Work","Hygiene products").required().description("Accepted values:Food,Clothes,Work,Lodging,Hygiene products"),
-    city: Joi.string().min(3).max(20).required(),
+    city: Joi.string().min(3).max(20)..valid("Lleida","Barcelona","New York").required().description("Accepted values:Lleida,Barcelona,New York"),
     helpType: Joi.string().valid("Personally","Through a volunteer").required().description("Accepted values: Personally, Through a volunteer")
   }).with('email', 'password');
 
