@@ -30,7 +30,8 @@ exports.create = (req, res) => {
                    email: req.body.email,
                    password: hash,
                    donationType: req.body.donationType,
-                   helpType: req.body.helpType
+                   helpType: req.body.helpType,
+                   city: req.body.city
              });
              // Save Donor in the database
              donor.save()

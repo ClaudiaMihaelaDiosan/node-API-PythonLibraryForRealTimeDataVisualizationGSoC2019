@@ -33,7 +33,8 @@ exports.create = (req, res) => {
                    LastName: req.body.LastName,
                    Birthyear: req.body.Birthyear,
                    Birthmonth: req.body.Birthmonth,
-                   Birthday: req.body.Birthday
+                   Birthday: req.body.Birthday,
+                   city: req.body.city
              });
              // Save Volunteer in the database
              volunteer.save()

@@ -28,7 +28,8 @@ exports.create = (req, res) => {
                  Description: req.body.Description,
                  Need: req.body.Need,
                  Schedule: req.body.Schedule,
-                 Location: req.body.Location
+                 Location: req.body.Location,
+                 city: req.body.city
              });
              // Save Helpless in the database
              helpless.save()

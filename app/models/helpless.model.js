@@ -28,16 +28,20 @@ const helplessSchema = mongoose.model('Helpless', new mongoose.Schema({
   },
   Need:{
     type: String,
-    require: true,
+    required: true,
   },
   Schedule:{
     type: String,
-    require: true,
+    required: true,
   },
   Location: {
-        type: Array,
-        require: true
-    }
+    type: Array,
+    required: true
+  },
+  city: {
+    type: String,
+    required: true
+  }
 }));
 
 function validateHelpless(helpless){
@@ -50,7 +54,8 @@ function validateHelpless(helpless){
     Description: Joi.string().min(20).max(500).required(),
     Need: Joi.string().required(),
     Schedule: Joi.string().required(),
-    Location: Joi.array().ordered([Joi.number().min(-180).max(180).required(),Joi.number().min(-90).max(90).required()]).description("Please use this format [ longitude, latitude]")
+    Location: Joi.array().ordered([Joi.number().min(-180).max(180).required(),Joi.number().min(-90).max(90).required()]).description("Please use this format [ longitude, latitude]"),
+    city: Joi.string().min(3).max(20).valid("Lleida","Barcelona","New York").required().description("Accepted values:Lleida,Barcelona,New York")
    });
 
   return Joi.validate(helpless, schema);
