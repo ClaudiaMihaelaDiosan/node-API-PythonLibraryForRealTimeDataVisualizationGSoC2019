@@ -34,6 +34,7 @@ exports.create = (req, res) => {
                    Birthyear: req.body.Birthyear,
                    Birthmonth: req.body.Birthmonth,
                    Birthday: req.body.Birthday,
+                   Location: req.body.Location,
                    city: req.body.city
              });
              // Save Volunteer in the database

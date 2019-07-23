@@ -35,6 +35,10 @@ const volunteerSchema = mongoose.model('Volunteer', new mongoose.Schema({
     type:Number,
     required: true
   },
+  Location: {
+    type: Array,
+    required: true
+  },
   city:{
     type:String,
     required: true
@@ -52,6 +56,7 @@ function validateVolunteer(volunteer){
     Birthyear: Joi.number().integer().min(1900).max(2005).positive().required(),
     Birthmonth: Joi.number().integer().min(1).max(12).positive().required(),
     Birthday: Joi.number().integer().min(1).max(31).positive().required(),
+    Location: Joi.array().ordered([Joi.number().min(-180).max(180).required(),Joi.number().min(-90).max(90).required()]).description("Please use this format [ longitude, latitude]"),
     city: Joi.string().min(3).max(20).valid("Lleida","Barcelona","New York").required().description("Accepted values:Lleida,Barcelona,New York"),
   });
 
