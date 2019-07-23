@@ -104,3 +104,37 @@ exports.delete = (req, res) => {
         });
     });
 };
+
+
+// Update a helpless identified by the helplessId in the request
+exports.update = (req, res) => {
+    // Validate Request
+    if(!req.body.city) {
+        return res.status(400).send({
+            message: "Helpless city can not be empty"
+        });
+    }
+
+    // Find donor and update it with the request body
+    Helpless.findByIdAndUpdate(req.params.helplessId, {
+        city: req.body.city || "Username",
+        Location: req.body.Location
+    }, {new: true})
+    .then(donor => {
+        if(!donor) {
+            return res.status(404).send({
+                message: "Donor not found with id " + req.params.helplessId
+            });
+        }
+        res.send(donor);
+    }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Donor not found with id " + req.params.helplessId
+            });
+        }
+        return res.status(500).send({
+            message: "Error updating donor with id " + req.params.helplessId
+        });
+    });
+};
