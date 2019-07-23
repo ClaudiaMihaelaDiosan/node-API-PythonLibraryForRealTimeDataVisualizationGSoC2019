@@ -16,4 +16,7 @@ app.get('/allhelpless',helpless.findAll);
 // Delete a Helpless with helplessId
 app.delete('/helpless/:helplessId', helpless.delete);
 
+// Update a Helpless with helplessId
+app.put('/helpless/:helplessId', helpless.update);
+
 }
