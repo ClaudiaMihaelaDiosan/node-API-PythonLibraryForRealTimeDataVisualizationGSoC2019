@@ -1,36 +1,45 @@
-const express = require ('express');
+const express = require('express');
 const bodyParser = require('body-parser');
-
-
+var cors = require('cors');
 
 //create express app
 const app = express();
 
+
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({
+  extended: true
+}))
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json())
 
+app.use(cors());
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "*");
+  res.header("Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS");
+  next();
+});
 
 // define a simple route
 app.get('/', (req, res) => {
-    res.json({"message": "Welcome to SocialCare app. A GSoC2019 project."});
+  res.json({
+    "message": "Welcome to SocialCare app. A GSoC2019 project."
+  });
 });
 
-// listen for requests
-app.listen(3000, () => {
-    console.log("Server is listening on port 3000");
-});
 
 //Require Donor routes
-require ('./app/routes/donor.routes.js')(app);
+require('./app/routes/donor.routes.js')(app);
 
 //Require Volunteer routes
-require ('./app/routes/volunteer.routes.js')(app);
+require('./app/routes/volunteer.routes.js')(app);
 
 //Require Needy routes
-require ('./app/routes/helpless.routes.js')(app);
+require('./app/routes/helpless.routes.js')(app);
 
 
 // Configuring the database
@@ -41,10 +50,16 @@ mongoose.Promise = global.Promise;
 
 // Connecting to the database
 mongoose.connect(dbConfig.url, {
-    useNewUrlParser: true
+  useNewUrlParser: true
 }).then(() => {
-    console.log("Successfully connected to the database");
+  console.log("Successfully connected to the database");
 }).catch(err => {
-    console.log('Could not connect to the database. Exiting now...', err);
-    process.exit();
+  console.log('Could not connect to the database. Exiting now...', err);
+  process.exit();
+});
+
+
+// listen for requests
+app.listen(3000, () => {
+  console.log("Server is listening on port 3000");
 });
