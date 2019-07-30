@@ -32,15 +32,11 @@ exports.create = (req, res) => {
         } else {
           // Create a Volunteer
           const volunteer = new Volunteer({
-            username: req.body.username,
+            ccompleteName: req.body.completeName,
             email: req.body.email,
             password: hash,
-            FirstName: req.body.FirstName,
-            LastName: req.body.LastName,
-            Birthyear: req.body.Birthyear,
-            Birthmonth: req.body.Birthmonth,
-            Birthday: req.body.Birthday,
-            Location: req.body.Location,
+            birthyear: req.body.birthyear,
+            location: req.body.location,
             city: req.body.city
           });
           // Save Volunteer in the database
@@ -148,15 +144,17 @@ exports.delete = (req, res) => {
 // Update a volunteer identified by the volunteerId in the request
 exports.update = (req, res) => {
   // Validate Request
-  if (!req.body.username) {
+  if (!req.body.completeName) {
     return res.status(400).send({
-      message: "Volunteer username can not be empty"
+      message: "Volunteer name can not be empty"
     });
   }
 
   // Find volunteer and update it with the request body
   Volunteer.findByIdAndUpdate(req.params.volunteerId, {
-      username: req.body.username || "Username",
+      password: req.body.password,
+      location: req.body.location,
+      city: req.body.city
     }, {
       new: true
     })

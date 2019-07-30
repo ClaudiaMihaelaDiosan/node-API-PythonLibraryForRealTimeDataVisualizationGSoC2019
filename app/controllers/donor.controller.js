@@ -32,12 +32,13 @@ exports.create = (req, res) => {
         } else {
           // Create a Donor
           const donor = new Donor({
-            username: req.body.username,
+            completeName: req.body.completeName,
             email: req.body.email,
             password: hash,
+            birthyear:req.body.birthyear,
             donationType: req.body.donationType,
             helpType: req.body.helpType,
-            Location: req.body.Location,
+            location: req.body.location,
             city: req.body.city
           });
           // Save Donor in the database
@@ -149,16 +150,17 @@ exports.delete = (req, res) => {
 // Update a donor identified by the donorId in the request
 exports.update = (req, res) => {
   // Validate Request
-  if (!req.body.username) {
+  if (!req.body.completeName) {
     return res.status(400).send({
-      message: "Donor username can not be empty"
+      message: "Donor name can not be empty"
     });
   }
 
   // Find donor and update it with the request body
   Donor.findByIdAndUpdate(req.params.donorId, {
-      username: req.body.username || "Username",
-      helpType: req.body.helpType
+      password: req.body.password,
+      location: req.body.location,
+      city: req.body.city
     }, {
       new: true
     })

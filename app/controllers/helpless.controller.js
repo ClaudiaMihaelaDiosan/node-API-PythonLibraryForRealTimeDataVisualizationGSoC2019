@@ -18,15 +18,13 @@ exports.create = (req, res) => {
 
     Helpless.findOne({
       $and: [{
-        FirstName: req.body.FirstName
+        completeName: req.body.completeName
       }, {
-        LastName: req.body.LastName
+        birthyear: req.body.birthyear
       }, {
-        Birthyear: req.body.Birthyear
+        location: req.body.location
       }, {
-        Birthmonth: req.body.Birthmonth
-      }, {
-        Birthday: req.body.Birthday
+        lifeHistory: req.body.lifeHistory
       }]
     }).exec(function(err, helpless) {
       if (helpless) {
@@ -36,15 +34,12 @@ exports.create = (req, res) => {
       } else {
         // Create a Helpless
         const helpless = new Helpless({
-          FirstName: req.body.FirstName,
-          LastName: req.body.LastName,
+          completeName: req.body.completeName,
           Birthyear: req.body.Birthyear,
-          Birthmonth: req.body.Birthmonth,
-          Birthday: req.body.Birthday,
-          Description: req.body.Description,
-          Need: req.body.Need,
-          Schedule: req.body.Schedule,
-          Location: req.body.Location,
+          lifeHistory: req.body.lifeHistory,
+          need: req.body.need,
+          schedule: req.body.schedule,
+          location: req.body.location,
           city: req.body.city
         });
         // Save Helpless in the database
@@ -152,16 +147,19 @@ exports.delete = (req, res) => {
 // Update a helpless identified by the helplessId in the request
 exports.update = (req, res) => {
   // Validate Request
-  if (!req.body.city) {
+  if (!req.body.completeName) {
     return res.status(400).send({
-      message: "Helpless city can not be empty"
+      message: "Helpless name can not be empty"
     });
   }
 
-  // Find donor and update it with the request body
+  // Find helpless and update it with the request body
   Helpless.findByIdAndUpdate(req.params.helplessId, {
-      city: req.body.city || "Username",
-      Location: req.body.Location
+      city: req.body.city ,
+      location: req.body.location,
+      lifeHistory: req.body.lifeHistory,
+      need: req.body.need,
+      schedule: req.body.schedule
     }, {
       new: true
     })
