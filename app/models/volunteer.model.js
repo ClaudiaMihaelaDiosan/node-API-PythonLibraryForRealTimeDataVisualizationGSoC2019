@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Joi = require('@hapi/joi');
 
 const volunteerSchema = mongoose.model('Volunteer', new mongoose.Schema({
-  username:{
+  completeName:{
     type: String,
     required: true,
 
@@ -15,27 +15,11 @@ const volunteerSchema = mongoose.model('Volunteer', new mongoose.Schema({
     type: String,
     required: true,
   },
-  FirstName: {
-    type: String,
-    required: true,
-  },
-  LastName: {
-    type: String,
-    required: true,
-  },
-  Birthyear: {
+  birthyear: {
     type: Number,
     required: true,
   },
-  Birthmonth:{
-    type:Number,
-    required: true,
-  },
-  Birthday:{
-    type:Number,
-    required: true
-  },
-  Location: {
+  location: {
     type: Array,
     required: true
   },
@@ -48,15 +32,11 @@ const volunteerSchema = mongoose.model('Volunteer', new mongoose.Schema({
 
 function validateVolunteer(volunteer){
   const schema = Joi.object().keys({
-    username: Joi.string().min(5).max(20).required(),
+    completeName: Joi.string().min(2).max(50).required(),
     email: Joi.string().min(5).max(255).required().email(),
     password: Joi.string().regex(/^[a-zA-Z0-9]{6,16}$/).min(6).required(),
-    FirstName: Joi.string().min(2).max(50).required(),
-    LastName: Joi.string().min(2).max(50).required(),
-    Birthyear: Joi.number().integer().min(1900).max(2005).positive().required(),
-    Birthmonth: Joi.number().integer().min(1).max(12).positive().required(),
-    Birthday: Joi.number().integer().min(1).max(31).positive().required(),
-    Location: Joi.array().ordered([Joi.number().min(-180).max(180).required(),Joi.number().min(-90).max(90).required()]).description("Please use this format [ longitude, latitude]"),
+    birthyear: Joi.number().integer().min(1900).max(2005).positive().required(),
+    location: Joi.array().ordered([Joi.number().min(-180).max(180).required(),Joi.number().min(-90).max(90).required()]).description("Please use this format [ longitude, latitude]"),
     city: Joi.string().min(3).max(20).valid("Lleida","Barcelona","New York").required().description("Accepted values:Lleida,Barcelona,New York"),
   });
 
