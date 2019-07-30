@@ -32,7 +32,7 @@ const donorSchema = mongoose.model('User', new mongoose.Schema({
     type:String,
     required: true,
   }
-  
+
 }));
 
 

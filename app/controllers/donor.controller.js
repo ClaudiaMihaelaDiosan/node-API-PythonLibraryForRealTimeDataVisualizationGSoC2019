@@ -37,6 +37,7 @@ exports.create = (req, res) => {
             password: hash,
             donationType: req.body.donationType,
             helpType: req.body.helpType,
+            Location: req.body.Location,
             city: req.body.city
           });
           // Save Donor in the database
@@ -157,6 +158,7 @@ exports.update = (req, res) => {
   // Find donor and update it with the request body
   Donor.findByIdAndUpdate(req.params.donorId, {
       username: req.body.username || "Username",
+      helpType: req.body.helpType
     }, {
       new: true
     })
