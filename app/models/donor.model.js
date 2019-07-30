@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Joi = require('@hapi/joi');
 
 
-const donorSchema = mongoose.model('User', new mongoose.Schema({
+const donorSchema = mongoose.model('Donor', new mongoose.Schema({
   completeName:{
     type: String,
     required: true,
