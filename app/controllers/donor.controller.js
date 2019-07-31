@@ -35,7 +35,6 @@ exports.create = (req, res) => {
             completeName: req.body.completeName,
             email: req.body.email,
             password: hash,
-            birthyear:req.body.birthyear,
             donationType: req.body.donationType,
             helpType: req.body.helpType,
             location: req.body.location,

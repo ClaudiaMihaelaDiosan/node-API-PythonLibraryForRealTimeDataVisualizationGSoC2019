@@ -32,7 +32,7 @@ exports.create = (req, res) => {
         } else {
           // Create a Volunteer
           const volunteer = new Volunteer({
-            ccompleteName: req.body.completeName,
+            completeName: req.body.completeName,
             email: req.body.email,
             password: hash,
             birthyear: req.body.birthyear,
