@@ -35,7 +35,7 @@ const helplessSchema = mongoose.model('Helpless', new mongoose.Schema({
 function validateHelpless(helpless){
   const schema = Joi.object().keys({
     completeName: Joi.string().min(2).max(50).required(),
-    Birthyear: Joi.number().integer().min(1900).max(2003).positive().required(),
+    birthyear: Joi.number().integer().min(1900).max(2003).positive().required(),
     lifeHistory: Joi.string().min(20).max(500).required(),
     need: Joi.string().required(),
     schedule: Joi.string().required(),

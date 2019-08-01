@@ -35,7 +35,7 @@ exports.create = (req, res) => {
         // Create a Helpless
         const helpless = new Helpless({
           completeName: req.body.completeName,
-          Birthyear: req.body.Birthyear,
+          birthyear: req.body.birthyear,
           lifeHistory: req.body.lifeHistory,
           need: req.body.need,
           schedule: req.body.schedule,

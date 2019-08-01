@@ -139,6 +139,8 @@ exports.delete = (req, res) => {
         message: "Could not delete volunteer with id " + req.params.volunteerId
       });
     });
+	//Volunteer.deleteMany({}, function(err){
+	//});
 };
 
 // Update a volunteer identified by the volunteerId in the request
