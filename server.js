@@ -1,6 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const {dialogflow, SimpleResponse, RichResponse} = require('actions-on-google')
+var webhook = dialogflow()
 var cors = require('cors');
+
 
 //create express app
 const app = express();
@@ -58,6 +61,14 @@ mongoose.connect(dbConfig.url, {
   process.exit();
 });
 
+
+webhook.intent('City homeless',function(conv){
+  //tratar el intent
+  var url = 'http://localhost:3000/allhelpless'
+})
+
+
+app.post('/assistant', webhook)
 
 // listen for requests
 app.listen(3000, () => {

@@ -119,6 +119,8 @@ exports.findAll = (req, res) => {
 };
 
 
+
+
 // Delete a helpless with the specified helplessId in the request
 exports.delete = (req, res) => {
   Helpless.findByIdAndRemove(req.params.helplessId)
