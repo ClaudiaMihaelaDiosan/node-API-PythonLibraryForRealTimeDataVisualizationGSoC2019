@@ -58,6 +58,19 @@ This project is developed in a context of a scolarship in the program Google Sum
  localhost:3000
  ```
  
+  ## __License__
+  
+ This Node.js API is used to make CRUD operations with three specific models, in order to use this data into a Web Interface and an Android Application to display the data into the Liquid Galaxy.
+
+Copyright (C) 2019 Mihaela Claudia Diosan
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/.
+
+Author contact: [Email](mcd1591@gmail.com)
 
  
 
