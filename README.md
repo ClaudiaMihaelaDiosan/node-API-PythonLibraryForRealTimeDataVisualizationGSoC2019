@@ -27,5 +27,11 @@ This project is developed in a context of a scolarship in the program Google Sum
  ## __Wiki__
  
  You can find all the development process and more information about this project on the [Wiki](https://github.com/LiquidGalaxyLAB/PythonLibraryForRealTimeDataVisualizationGSoC2019--API-nodeJs/wiki) 
+ 
+ ## __Prerequisites__
+ 
+ * [Ubuntu 16.04](http://releases.ubuntu.com/16.04/)
+ * [Node.js](https://nodejs.org/en/)
+ * [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
 
  
