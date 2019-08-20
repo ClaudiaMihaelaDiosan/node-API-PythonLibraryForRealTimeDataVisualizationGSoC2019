@@ -8,6 +8,6 @@
 
 <p>This API is used with the next applications:</p>
 
- ⋅⋅* [Vuejs Web Interface](https://github.com/LiquidGalaxyLAB/Python-library-for-real-time-data-visualization----Web-Interface)
+ * [Vuejs Web Interface](https://github.com/LiquidGalaxyLAB/Python-library-for-real-time-data-visualization----Web-Interface)
  
- ⋅⋅* [Social Care Android Application](https://github.com/LiquidGalaxyLAB/Python-library-for-real-time-data-visualization--SocialCare-Android-App)
+ * [Social Care Android Application](https://github.com/LiquidGalaxyLAB/Python-library-for-real-time-data-visualization--SocialCare-Android-App)
