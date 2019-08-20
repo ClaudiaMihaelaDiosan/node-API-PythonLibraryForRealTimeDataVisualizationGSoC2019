@@ -33,5 +33,32 @@ This project is developed in a context of a scolarship in the program Google Sum
  * [Ubuntu 16.04](http://releases.ubuntu.com/16.04/)
  * [Node.js](https://nodejs.org/en/)
  * [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
+ * [Postman](https://www.getpostman.com/downloads/)
+ 
+ ## __Getting Started__
+ 
+ The easiest way to get started is to clone the repository:
+ ```
+ # Get the latest version
+ git clone https://github.com/LiquidGalaxyLAB/PythonLibraryForRealTimeDataVisualizationGSoC2019--API-nodeJs.git 
+ 
+ #go to content folder
+ cd PythonLibraryForRealTimeDataVisualizationGSoC2019--API-nodeJs
+ 
+ #execute node to run
+ node server.js
+ 
+ #if some package is missing install it with the fllow command
+ npm install [package_name] --save
+ 
+ #update project after installing package
+ npm install -g npm
+ 
+ # Open one browser and go to this URL
+ localhost:3000
+ ```
+ 
+
+ 
 
  
