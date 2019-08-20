@@ -190,6 +190,7 @@ webhook.intent('oneHomeless',function(conv){
   var icon = process.env.VUE_APP_KML_API_URL + 'images/homeless.png'
   var urlApi = process.env.VUE_APP_NODE_API_URL + 'allhelpless' + '/' + conv.parameters['city']
 
+
   return axios.get(urlApi)
   .then(function (response){
     vm.roleInfo = response.data
@@ -219,6 +220,8 @@ webhook.intent('oneHomeless',function(conv){
       formData.append('icon',icon)
       formData.append('scale',1.3)
       formData.append('description',description)
+
+
 
       axios({
          method: 'get',
@@ -298,10 +301,7 @@ webhook.intent('oneHomeless',function(conv){
 
 
 
-})
-
-
-
+});
 
 
 app.post('/assistant', webhook)
