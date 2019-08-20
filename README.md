@@ -4,9 +4,9 @@
 
 
 
-<p>This Node.js API is composed by 3 main models: Homeless, Donors and Volunteers and contains CRUD (Create Read Update Delete) operations for each model.</p>
+This Node.js API is composed by 3 main models: Homeless, Donors and Volunteers and contains CRUD (Create Read Update Delete) operations for each model.
 
-<p>This API is used with the next applications, three of them making part from the same project:</p>
+This API is used with the next applications, three of them making part from the same project:
 
  * [Vuejs Web Interface](https://github.com/LiquidGalaxyLAB/Python-library-for-real-time-data-visualization----Web-Interface)
  
@@ -44,6 +44,9 @@ This project is developed in a context of a scolarship in the program Google Sum
  
  #go to content folder
  cd PythonLibraryForRealTimeDataVisualizationGSoC2019--API-nodeJs
+ 
+ #before executing the code, make sure that the mongoDB server is running
+ sudo service mongod start
  
  #execute node to run
  node server.js
