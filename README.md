@@ -58,6 +58,7 @@ This project is developed in a context of a scolarship in the program Google Sum
  localhost:3000
  ```
  
+ 
   ## __License__
   
  This Node.js API is used to make CRUD operations with three specific models, in order to use this data into a Web Interface and an Android Application to display the data into the Liquid Galaxy.
@@ -70,7 +71,6 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/.
 
-Author contact: [Email](mcd1591@gmail.com)
 
  
 
