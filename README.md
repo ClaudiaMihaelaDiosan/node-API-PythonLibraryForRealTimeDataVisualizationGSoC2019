@@ -13,16 +13,19 @@
  * [Social Care Android Application](https://github.com/LiquidGalaxyLAB/Python-library-for-real-time-data-visualization--SocialCare-Android-App)
  
  
+ 
  ## __Google Summer Of Code 2019__
+ 
 <p align="center"> 
  <img width="460" height="300" src="https://i.ibb.co/6YRpnjS/google-summer-of-code-2016.png">
 </p>
 
-<p> This project is developed in a context of a scolarship in the program Google Summer Of Code 2019. </p>
+This project is developed in a context of a scolarship in the program Google Summer Of Code 2019.
+ 
+
 
  ## __Wiki__
  
- <p> You can find all the development process and more information about this project on the </p>
- [Wiki](https://github.com/LiquidGalaxyLAB/PythonLibraryForRealTimeDataVisualizationGSoC2019--API-nodeJs/wiki) 
+ You can find all the development process and more information about this project on the [Wiki](https://github.com/LiquidGalaxyLAB/PythonLibraryForRealTimeDataVisualizationGSoC2019--API-nodeJs/wiki) 
 
  
