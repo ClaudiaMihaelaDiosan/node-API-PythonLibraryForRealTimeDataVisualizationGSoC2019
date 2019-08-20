@@ -22,4 +22,7 @@
 
  ## __Wiki__
  
- <p> You can find all the development process and more information about this project on our 
+ <p> You can find all the development process and more information about this project on the </p>
+ [Wiki](https://github.com/LiquidGalaxyLAB/PythonLibraryForRealTimeDataVisualizationGSoC2019--API-nodeJs/wiki) 
+
+ 
