@@ -6,12 +6,13 @@ var cors = require('cors');
 var axios = require('axios');
 var FormData = require('form-data');
 require('dotenv').config();
-app.set('etag', false)
+
 
 
 //create express app
 const app = express();
 
+app.set('etag', false)
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
@@ -149,6 +150,7 @@ mongoose.connect(dbConfig.url, {
 
      })
    }
+
 
 
 
@@ -294,8 +296,6 @@ webhook.intent('oneHomeless',function(conv){
   .catch(function(response){
     console.log("error", response);
   })
-
-
 
 });
 

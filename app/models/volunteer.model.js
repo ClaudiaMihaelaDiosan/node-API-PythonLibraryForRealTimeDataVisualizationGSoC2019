@@ -11,10 +11,6 @@ const volunteerSchema = mongoose.model('Volunteer', new mongoose.Schema({
     type: String,
     required: true,
   },
-  password: {
-    type: String,
-    required: true,
-  },
   birthyear: {
     type: Number,
     required: true,
@@ -34,7 +30,6 @@ function validateVolunteer(volunteer){
   const schema = Joi.object().keys({
     completeName: Joi.string().min(2).max(50).required(),
     email: Joi.string().min(5).max(255).required().email(),
-    password: Joi.string().regex(/^[a-zA-Z0-9]{6,16}$/).min(6).required(),
     birthyear: Joi.number().integer().min(1900).max(2005).positive().required(),
     location: Joi.array().ordered([Joi.number().min(-180).max(180).required(),Joi.number().min(-90).max(90).required()]).description("Please use this format [ longitude, latitude]"),
     city: Joi.string().min(3).max(20).valid("Lleida","Barcelona","New York").required().description("Accepted values:Lleida,Barcelona,New York"),

@@ -143,6 +143,8 @@ exports.delete = (req, res) => {
         message: "Could not delete helpless with id " + req.params.helplessId
       });
     });
+  //  Helpless.deleteMany({}, function(err){
+ //    });
 };
 
 

@@ -139,8 +139,9 @@ exports.delete = (req, res) => {
         message: "Could not delete volunteer with id " + req.params.volunteerId
       });
     });
-	//Volunteer.deleteMany({}, function(err){
-	//});
+    //delete all the volunteers from the DB
+//	Volunteer.deleteMany({}, function(err){
+//	});
 };
 
 // Update a volunteer identified by the volunteerId in the request
@@ -154,9 +155,9 @@ exports.update = (req, res) => {
 
   // Find volunteer and update it with the request body
   Volunteer.findByIdAndUpdate(req.params.volunteerId, {
-      password: req.body.password,
-      location: req.body.location,
-      city: req.body.city
+    location: req.body.location,
+    city: req.body.city,
+    email: req.body.email
     }, {
       new: true
     })

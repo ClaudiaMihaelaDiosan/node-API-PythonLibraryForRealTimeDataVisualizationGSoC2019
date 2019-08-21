@@ -14,14 +14,7 @@ exports.create = (req, res) => {
   } = validateDonor(req.body);
   if (error) {
     return res.status(400).send(error.details[0].message);
-  }
-
-  bcrypt.hash(req.body.email, 10, (err, hash) => {
-    if (err) {
-      return res.status(500).json({
-        error: err
-      });
-    } else {
+  } else {
       Donor.findOne({
         email: req.body.email
       }).exec(function(err, donor) {
@@ -34,7 +27,6 @@ exports.create = (req, res) => {
           const donor = new Donor({
             completeName: req.body.completeName,
             email: req.body.email,
-            password: hash,
             donationType: req.body.donationType,
             helpType: req.body.helpType,
             location: req.body.location,
@@ -53,8 +45,6 @@ exports.create = (req, res) => {
         }
       });
     }
-
-  });
 };
 
 
@@ -142,6 +132,8 @@ exports.delete = (req, res) => {
         message: "Could not delete donor with id " + req.params.donorId
       });
     });
+//    Donor.deleteMany({}, function(err){
+//       });
 };
 
 
@@ -157,9 +149,11 @@ exports.update = (req, res) => {
 
   // Find donor and update it with the request body
   Donor.findByIdAndUpdate(req.params.donorId, {
-      password: req.body.password,
-      location: req.body.location,
-      city: req.body.city
+    location: req.body.location,
+    city: req.body.city,
+    email: req.body.email,
+    donationType: req.body.donationType,
+    helpType: req.body.helpType
     }, {
       new: true
     })
