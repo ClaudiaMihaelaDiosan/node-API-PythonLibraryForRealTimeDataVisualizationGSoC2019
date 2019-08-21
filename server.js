@@ -6,11 +6,13 @@ var cors = require('cors');
 var axios = require('axios');
 var FormData = require('form-data');
 require('dotenv').config();
-
+const nocache = require('nocache')
 
 
 //create express app
 const app = express();
+
+app.use(nocache())
 
 app.set('etag', false)
 
@@ -73,6 +75,9 @@ mongoose.connect(dbConfig.url, {
      var longitude = ''
      var latitude = ''
      var range = ''
+
+
+  
      if (city == 'Lleida'){
        longitude = 0.6419,
        latitude = 41.6109,
@@ -160,9 +165,12 @@ mongoose.connect(dbConfig.url, {
   var urlApi = process.env.VUE_APP_NODE_API_URL + 'allhelpless' + '/' + conv.parameters['city']
 
 
+
   if(conv.parameters['city'] == "Lleida" ||  conv.parameters['city'] == "Barcelona" || conv.parameters['city'] == "New York"){
+
     flyTo(conv.parameters['city']),
     showHomeless(conv.parameters['city']),
+
     response = new SimpleResponse({
       text: "Showing the list of homeless from " + conv.parameters['city'],
       speech:"Showing all homeless from" + conv.parameters['city']
