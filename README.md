@@ -21,6 +21,7 @@ This API is used with the next applications, three of them making part from the 
 </p>
 
 This project is developed in a context of a scolarship in the program Google Summer Of Code 2019.
+If you want to see all my experience here is [MY WORKLOG](https://docs.google.com/document/d/1V9TZTECHCCe-VXC95t71uiPQfWrQ5vkXqKbgOuxqiqo/edit?usp=sharing) where I wrote every day about my experience and issues.
  
 
 
